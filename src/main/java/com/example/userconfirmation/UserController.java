@@ -37,14 +37,15 @@ public class UserController implements Initializable {
     private void eventAction(ActionEvent event){
         Object evt = event.getSource();
         if(evt.equals(loginButton)) {
-            if (!textUser.getText().isEmpty() && !passwordText.getText().isEmpty()) {
-                String user = textUser.getText();
-                String pass = passwordText.getText();
+            if (textUser.getText().isEmpty() && passwordText.getText().isEmpty()) {
+                System.out.println("Please put something!");
 
-                ///en el video se usa swing para poder hacer funcionar el JOptionPane
-                /// apartir de aca el video empieza a usar base de datos
-            }///else{
-            ///JOptionPane.showMessageDialog(null,"Log In ERROR","Warning", JOptionPane.WARNING_MESSAGE);
+            }else{
+                String path = "data.csv", user = textUser.getText(), pass = passwordText.getText();
+                new Main().ReadFile(path, user, pass);
+
+            }
+
 
         }
 
